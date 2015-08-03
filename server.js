@@ -25,6 +25,6 @@ app.use(express.static(__dirname + '/client'))
 app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/client/html/index.html');
 });
-var server = http.createServer(app).listen(process.env.PORT || 9250);
+var server = http.createServer(app).listen(process.env.PORT || 9250, '0.0.0.0');
 
 require('./server/mstsc')(server);
