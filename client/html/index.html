@@ -46,12 +46,19 @@
   <body onload='load("myCanvas")'>
 
     <div id="main" class="container">
-		<form class="form-signin"  onSubmit="connect(this.elements['inputIpAddress'].value, this.elements['inputDomain'].value, this.elements['inputUsername'].value, this.elements['inputPassword'].value);return false;">
+		<form class="form-signin"  onSubmit="connect(this.elements['inputIpAddress'].value, '', this.elements['inputUsername'].value, this.elements['inputPassword'].value);return false;">
 			<img class='logo' src="./img/mstsc.js.svg"></img>
 			<label for="inputIpAddress" class="sr-only">IP Address</label>
+			<select class="form-control" id="inputIpAddress">
+				<option value="192.168.5.100">JTL01</option>
+			</select>
+			<!--
 			<input type="text" id="inputIpAddress" class="form-control" placeholder="IP Address" required autofocus>
+			-->
+			<!--
 			<label for="inputDomain" class="sr-only">Domain</label>
 			<input type="text" id="inputDomain" class="form-control" placeholder="Domain">
+			-->
 			<label for="inputUsername" class="sr-only">Username</label>
 			<input type="text" id="inputUsername" class="form-control" placeholder="Username">
 			<label for="inputPassword" class="sr-only">Password</label>
