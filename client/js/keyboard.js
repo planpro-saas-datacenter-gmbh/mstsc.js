@@ -348,7 +348,6 @@
 		91 : "OSLeft",
 		18 : "AltLeft",
 		32 : "Space",
-		17 : "ControlLeft",
 		18 : "AltRight",
 		91 : "OSRight",
 		93 : "ContextMenu",
@@ -375,9 +374,7 @@
 		96 : "Numpad0",
 		110 : "NumpadDecimal",
 		13 : "NumpadEnter",
-		17 : "ControlLeft",
 		67 : "KeyC",
-		17 : "ControlLeft"
 	};
 	
 	var UnicodeToCode_EN = {
@@ -478,19 +475,123 @@
 		13 : "NumpadEnter",
 		96 : "Numpad0",
 		110 : "NumpadDecimal",
-		17 : "ControlLeft"	
+	};
+
+	var UnicodeToCode_DE = {
+		27 : "Escape",
+		112 : "F1",
+		113 : "F2",
+		114 : "F3",
+		115 : "F4",
+		116 : "F5",
+		117 : "F6",
+		118 : "F7",
+		119 : "F8",
+		120 : "F9",
+		121 : "F10",
+		122 : "F11",
+		123 : "F12",
+		60 : "IntlBackslash",
+		49 : "Digit1",
+		50 : "Digit2",
+		51 : "Digit3",
+		52 : "Digit4",
+		53 : "Digit5",
+		54 : "Digit6",
+		55 : "Digit7",
+		56 : "Digit8",
+		57 : "Digit9",
+		48 : "Digit0",
+		63 : "Minus",
+		0 : "Equal",
+		8 : "Backspace",
+		9 : "Tab",
+		81 : "KeyQ",
+		87 : "KeyW",
+		69 : "KeyE",
+		82 : "KeyR",
+		84 : "KeyT",
+		90 : "KeyY",
+		85 : "KeyU",
+		73 : "KeyI",
+		79 : "KeyO",
+		80 : "KeyP",
+		0 : "BracketLeft",
+		171 : "BracketRight",
+		13 : "Enter",
+		20 : "CapsLock",
+		65 : "KeyA",
+		83 : "KeyS",
+		68 : "KeyD",
+		70 : "KeyF",
+		71 : "KeyG",
+		72 : "KeyH",
+		74 : "KeyJ",
+		75 : "KeyK",
+		76 : "KeyL",
+		0 : "Semicolon",
+		0 : "Quote",
+		163 : "Backslash",
+		16 : "ShiftLeft",
+		0 : "Backquote",
+		89 : "KeyZ",
+		88 : "KeyX",
+		67 : "KeyC",
+		86 : "KeyV",
+		66 : "KeyB",
+		78 : "KeyN",
+		77 : "KeyM",
+		188 : "Comma",
+		190 : "Period",
+		173 : "Slash",
+		16 : "ShiftRight",
+		17 : "ControlLeft",
+		18 : "AltLeft",
+		91 : "OSLeft",
+		32 : "Space",
+		91 : "OSRight",
+		225 : "AltRight",
+		17 : "ControlRight",
+		37 : "ArrowLeft",
+		38 : "ArrowUp",
+		39 : "ArrowRight",
+		40 : "ArrowDown",
+		35 : "Numpad1",
+		40 : "Numpad2",
+		34 : "Numpad3",
+		37 : "Numpad4",
+		12 : "Numpad5",
+		39 : "Numpad6",
+		36 : "Numpad7",
+		38 : "Numpad8",
+		33 : "Numpad9",
+		61 : "NumpadEqual",
+		111 : "NumpadDivide",
+		106 : "NumpadMultiply",
+		109 : "NumpadSubtract",
+		107 : "NumpadAdd",
+		13 : "NumpadEnter",
+		45 : "Numpad0",
+		46 : "NumpadDecimal",
+		33 : "PageUp",
+		34 : "PageDown",
+		35 : "End",
+		36 : "Home",
+		46 : "Delete", 
 	};
 	
 	
 	var UnicodeToCode = {
 		'firefox' : {
 			'fr' : UnicodeToCodeFirefox_FR,
-			'en' : UnicodeToCode_EN
+			'en' : UnicodeToCode_EN,
+			'de' : UnicodeToCode_DE
 		},
 		
 		'chrome' : {
 			'fr' : UnicodeToCodeChrome_FR,
-			'en' : UnicodeToCode_EN
+			'en' : UnicodeToCode_EN,
+			'de' : UnicodeToCode_DE
 		}
 	}
 	
@@ -501,7 +602,7 @@
 	 */
 	function scancode (e) {
 		var locale = Mstsc.locale();
-		locale = (['fr', 'en'].indexOf(locale) > 0 && locale) || 'en';
+		locale = (['fr', 'en', 'de'].indexOf(locale) > 0 && locale) || 'de';
 		return KeyMap[e.code || UnicodeToCode[Mstsc.browser() || 'firefox'][locale][e.keyCode]];
 	}
 	
